@@ -79,17 +79,20 @@ Essa VIEW serviu como fonte única de dados: no Excel, ela foi explorada com tab
 ```
 adventureworks-sql-excel-dashboard/
 ├── sql/
-│   ├── 1.definiçao_escopo_projeto.sql
-│   ├── 2.vendas_internet_por_categoria.sql
-│   ├── 3.receita_internet_por_mes_pedido.sql
-│   ├── 4.receita_e_custo_internet_por_país.sql
-│   ├── 5.total_vendas_internet_por_genero_cliente.sql
-│   └── 6.VIEW_analise_KPIs.sql
+│    ├── 1.definiçao_escopo_projeto.sql
+│    ├── 2.vendas_internet_por_categoria.sql
+│    ├── 3.receita_internet_por_mes_pedido.sql
+│    ├── 4.receita_e_custo_internet_por_país.sql
+│    ├── 5.total_vendas_internet_por_genero_cliente.sql
+│    └── 6.VIEW_analise_KPIs.sql
+│
 ├── excel/
-│   └── Dashboard_AdventureWorks2025.xlsx
+│     └── Dashboard_AdventureWorks2025.xlsx
+│
 ├── docs/
-│   └── images/
-│       └── dashboard_adventureworks.png
+│     └── images/
+│           └── dashboard_adventureworks.png
+│
 ├── README.md
 └── LICENSE
 ```

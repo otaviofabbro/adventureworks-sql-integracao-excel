@@ -73,7 +73,7 @@ Essa VIEW serviu como fonte única de dados: no Excel, ela foi explorada com tab
 
 ## 🖼️ Preview do Dashboard
 
-![Preview do Dashboard](./docs/images/dashboard_adventureworks2025.png)
+![Preview do Dashboard](./docs/images/dashboard_adventureworks_2025.png)
 
 ---
 

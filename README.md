@@ -27,7 +27,7 @@ Análise da performance de vendas do canal Internet (AdventureWorks) com SQL Ser
 
 ## 📌 Sobre o Projeto
 
-Este projeto simula um cenário real de análise de negócio para uma empresa de varejo online, utilizando o banco de dados de exemplo **AdventureWorks** (Microsoft) para o ano de 2013. O objetivo foi transformar dados brutos de vendas do canal *Internet Sales* em indicadores de negócio (KPIs) claros e acionáveis, apresentados em um dashboard interativo no Excel.
+Este projeto simula um cenário real de análise de negócio para uma empresa de varejo online, utilizando o banco de dados de exemplo **AdventureWorks** (Microsoft) para o período de **2010 a 2014**. O objetivo foi transformar dados brutos de vendas do canal *Internet Sales* em indicadores de negócio (KPIs) claros e acionáveis, apresentados em um dashboard interativo no Excel, com cartões executivos, segmentações por Ano e Categoria, e identidade visual própria.
 
 O fluxo do projeto segue uma pipeline típica de BI:
 
@@ -39,22 +39,35 @@ Praticar e demonstrar habilidades essenciais de análise de dados:
 - Escrita de consultas SQL para responder perguntas de negócio específicas
 - Modelagem de indicadores (KPIs) relevantes para times comerciais
 - Conexão de fontes de dados relacionais ao Excel via Power Query
-- Construção de dashboards claros, visuais e de fácil leitura
+- Construção de dashboards claros, visuais, interativos e de fácil leitura, com segmentação por Ano e Categoria
 
 ---
 
 ## 📈 KPIs Desenvolvidos
 
+### Cartões Executivos (Visão Geral do Período)
+
+| KPI | Descrição |
+|---|---|
+| **Faturamento Total** | Receita bruta acumulada no canal Internet entre 2010 e 2014 |
+| **Lucro Total** | Receita menos custo total dos produtos vendidos |
+| **Total de Vendas** | Quantidade total de pedidos/itens vendidos no período |
+| **Total de Clientes** | Base total de clientes únicos que compraram no canal Internet |
+
+### Análises Visuais (com Segmentação por Ano e Categoria)
+
 | # | KPI | Pergunta de Negócio Respondida |
 |---|-----|----------------------------------|
-| 1 | **Total de Vendas Internet por Categoria** | Quais categorias de produto mais vendem no canal online? |
-| 2 | **Receita Total Internet por Mês do Pedido** | Como a receita evolui ao longo do tempo? Há sazonalidade? |
-| 3 | **Receita e Custo Total Internet por País** | Quais mercados geram mais receita e qual a margem por região? |
-| 4 | **Total de Vendas Internet por Sexo do Cliente** | Existe diferença de comportamento de compra entre os perfis de cliente? |
+| 1 | **Vendas por Categoria** | Quais categorias de produto mais vendem no canal online? |
+| 2 | **Vendas por Mês (2010–2014)** | Como a receita evolui ao longo do tempo? Há sazonalidade ou tendência de crescimento? |
+| 3 | **Faturamento por País** | Quais mercados geram mais receita? |
+| 4 | **Vendas por Gênero** | Existe diferença de comportamento de compra entre os perfis de cliente? |
+
+Todos os visuais respondem dinamicamente aos filtros de **Ano** e **Categoria**, permitindo explorar o período completo (2010–2014) sem depender de recortes fixos.
 
 Cada KPI foi validado primeiro por um script SQL individual na pasta [sql](./sql), etapa de análise exploratória que antecedeu a criação de uma VIEW consolidando todos os dados necessários para a análise no Excel.
 
-Essa VIEW serviu como fonte única de dados: no Excel, ela foi explorada com tabelas dinâmicas — o equivalente visual da cláusula GROUP BY do SQL — a partir das quais foram construídos os gráficos do dashboard.
+Essa VIEW serviu como fonte única de dados: no Excel, ela foi explorada com tabelas dinâmicas — o equivalente visual da cláusula GROUP BY do SQL — a partir das quais foram construídos os gráficos e cartões do dashboard.
 
 ---
 
@@ -69,7 +82,8 @@ Essa VIEW serviu como fonte única de dados: no Excel, ela foi explorada com tab
 - **SQL Server** — armazenamento e modelagem dos dados (AdventureWorks)
 - **T-SQL** — extração e transformação dos KPIs
 - **Excel + Power Query** — conexão com o banco, transformação e dashboard
-- **Tabelas Dinâmicas / Segmentações (Slicers)** — interatividade no dashboard
+- **Cartões de KPI** — indicadores executivos (Faturamento, Lucro, Total de Vendas, Total de Clientes)
+- **Tabelas Dinâmicas / Segmentações (Slicers)** — filtros por Ano e Categoria com interatividade total
 - **Git & GitHub** — versionamento e portfólio
 
 ---
@@ -91,7 +105,7 @@ adventureworks-sql-excel-dashboard/
 │
 ├── docs/
 │     └── images/
-│           └── dashboard_adventureworks.png
+│           └── dashboard_adventureworks2025.png
 │
 ├── README.md
 └── LICENSE
@@ -101,19 +115,22 @@ adventureworks-sql-excel-dashboard/
 
 ## ⚙️ Como Reproduzir
 
-1. Baixe e restaure o banco **AdventureWorksDW2025**  a partir do [repositório oficial da Microsoft](https://github.com/Microsoft/sql-server-samples/releases).
+1. Baixe e restaure o banco **AdventureWorksDW2025** a partir do [repositório oficial da Microsoft](https://github.com/Microsoft/sql-server-samples/releases).
 2. Execute os scripts da pasta [sql](./sql) no SQL Server Management Studio (SSMS) para validar os KPIs.
 3. Abra o arquivo [Dashboard_AdventureWorks2025](./excel) no Excel.
 4. Em **Dados > Consultas e Conexões**, atualize a string de conexão para apontar para a sua instância local do SQL Server.
-5. Clique em **Atualizar Tudo** para carregar os dados e explore o dashboard.
+5. Clique em **Atualizar Tudo** para carregar os dados e explore o dashboard — use os filtros de Ano e Categoria para navegar pelo período completo (2010–2014).
 
 ---
 
 ## 💡 Principais Insights
 
-- A categoria **"Accessories"** representa a maior parcela da receita Internet, com destaque para o período de **Out-Dez e Jun-Ago**.
-- **"United States"** apresenta a maior margem (receita − custo) e maior volume, enquanto **"Canada"** tem menor volume e menor margem.
-- O perfil de cliente **"Masculino"** concentra **50,49%** das vendas online, sugerindo oportunidade de campanhas direcionadas, embora a diferença para o perfil **"Feminino"** seja proporcionalmente bem pequena.
+- No período de 2010 a 2014, o canal Internet gerou **R$ 29.358.677** em faturamento e **R$ 12.080.884** em lucro, resultando em uma margem de lucro de aproximadamente **41,2%**.
+- Foram realizadas **60.398 vendas** para uma base de **18.400 clientes**, uma média de **~3,3 compras por cliente** no período analisado.
+- A categoria **"Accessories"** lidera com folga as vendas por categoria, muito acima de **"Bikes"** e **"Clothing"**.
+- **Estados Unidos** concentra o maior faturamento entre os países analisados, seguido por Austrália e Reino Unido; **Canadá** aparece com o menor faturamento do grupo.
+- A distribuição de vendas por gênero está praticamente equilibrada: **Masculino 50,30%** vs. **Feminino 49,70%**.
+- A série mensal mostra uma tendência de crescimento consistente entre 2010 e o final de 2013, com queda acentuada no início de 2014 — provavelmente referente a um mês com dados parciais.
 
 ---
 
@@ -146,4 +163,3 @@ adventureworks-sql-excel-dashboard/
 ## 📄 Licença
 
 Este projeto está sob a licença MIT — veja o arquivo [LICENSE](./LICENSE) para mais detalhes.
-
